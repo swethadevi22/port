@@ -1,0 +1,18 @@
+<html>
+    <head><title>Update Form</title>
+    {%load static%}</head>
+    <body>
+        <form action="/update/{{data.id}}" method="POST" autocomplete="off">
+            <h2>Update the details</h2>
+            {% csrf_token %}
+           
+            <label>Name</label>
+            <input type="text" value="{{data.Name}}" name="name"><br>
+            <label>Age</label>  
+        <input type="text" value="{{data.Age}}" name="age"><br>
+            <label>Email</label>
+            <input type="text" value="{{data.Email}}" name="email"><br>
+            <input type="submit" value="Update">
+          </form>
+    </body>
+</html>

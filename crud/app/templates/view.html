@@ -1,0 +1,44 @@
+<html>
+    <head><title>Form</title>
+        {% load static %}
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link href="{% static 'fontawesomepro/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            table,th,td{
+                border: 2px solid black;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body  >
+        {% block form %}
+        {% endblock %}
+        <div>
+            {% if reg %}
+            <table>
+                <thead>
+                    <tr><th>S.no</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                {% for data in reg %}
+                <tbody>
+                    <tr><td>{{forloop.counter}}</td>
+                    <td>{{data.Name}}</td>
+                    <td>{{data.Age}}</td>
+                    <td>{{data.Email}}</td>
+                    <td><a href="update/{{data.id}}">update</a></td>
+                    <td><a href="delete/{{data.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td></tr>
+                    
+                </tbody>
+                {% endfor %}
+            </table>
+            {% endif %}
+            
+            </div>
+    </body>
+</html>
